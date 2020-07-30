@@ -1,0 +1,51 @@
+.formStytle {
+  width: 500px;
+  height: 500px;
+  padding: 20px;
+}
+
+.titleStyle {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.numStyle {
+  padding: 20px;
+  display: grid;
+}
+
+.capacityStyle {
+  padding: 20px;
+}
+
+.sizeStyle {
+  padding: 20px;
+  display: grid;
+}
+
+.sizeContainer {
+  display: flex;
+}
+
+.bottomButtonStyle {
+  text-align: center;
+  display: flex;
+}
+
+.btnStyle {
+  margin: 20px !important;
+  width: 200px !important;
+}
+
+.textFieldStyle {
+  width: 200px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.capacityPadding {
+  padding-right: 10px;
+}

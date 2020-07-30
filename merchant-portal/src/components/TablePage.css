@@ -1,0 +1,22 @@
+.tabStyle {
+  font-weight: bold !important;
+}
+
+.pageStyle {
+  margin-left: 230px;
+  width: 100%;
+  display: block;
+}
+
+.tabsContainer {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+  padding: 20px;
+}
+
+.tablesContainer {
+  overflow-y: auto;
+}
