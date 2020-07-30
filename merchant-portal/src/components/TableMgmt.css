@@ -1,0 +1,14 @@
+.tableContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  padding-top: 40px;
+}
+
+.buttonContainer {
+  margin-top: 88px;
+  padding-left: 20px;
+  position: fixed !important;
+  width: 100%;
+  background-color: white;
+}
