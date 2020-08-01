@@ -1,6 +1,6 @@
 import "./TableMgmt.css";
 import AddIcon from "@material-ui/icons/Add";
-import AddTable from "./AddTable";
+import TablePopover from "./TablePopover";
 import Button from "@material-ui/core/Button";
 import Popover from "@material-ui/core/Popover";
 import React from "react";
@@ -52,17 +52,12 @@ function TableMGMT(props) {
             horizontal: "center",
           }}
         >
-          <AddTable setAnchorEl={setAnchorEl} />
+          <TablePopover setAnchorEl={setAnchorEl} />
         </Popover>
       </div>
       <div className="tableContainer">
-        {props.tables.map((tableItem) => (
-          <Table
-            name={tableItem.name}
-            capacity={tableItem.capacity}
-            width={tableItem.width}
-            length={tableItem.length}
-          />
+        {props.tables.map((tableItem, key) => (
+          <Table tableIndex={key} table={tableItem} />
         ))}
       </div>
     </>
