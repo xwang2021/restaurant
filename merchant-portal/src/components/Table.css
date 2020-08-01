@@ -9,6 +9,8 @@
   justify-content: center;
   display: flex;
   margin: 20px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .tableNameSpan {

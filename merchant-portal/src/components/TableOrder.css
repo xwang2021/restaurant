@@ -1,0 +1,55 @@
+.formContainer {
+  width: 700px;
+  height: 500px;
+  padding: 40px;
+  display: flex;
+}
+
+.menuButtonStyle {
+  text-align: center;
+  display: flex;
+}
+
+.checkoutStyle {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 350px 100px;
+  grid-template-rows: repeat(4, 30px);
+}
+
+.rightContainer {
+  display: grid;
+  margin-left: 80px;
+  margin-top: 110px;
+}
+
+.tableNumStyle {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.tableOrderStyle {
+  margin-top: 40px;
+}
+
+.menuContainer {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.orderTitleSytle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.discount {
+  display: flex;
+  padding-left: 15px;
+}
+
+.discountTextField {
+  margin-left: 5px;
+  text-align: right;
+  width: 60px;
+  height: 1.3em;
+}

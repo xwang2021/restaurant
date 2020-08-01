@@ -1,0 +1,19 @@
+.orderContainer {
+  display: grid;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.priceStyle {
+  text-align: right;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 350px 100px;
+}
+
+.removeButton {
+  margin-left: 60px !important;
+  color: red !important;
+}

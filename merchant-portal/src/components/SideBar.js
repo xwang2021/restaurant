@@ -13,8 +13,8 @@ export default function SideBar({ items }) {
   return (
     <div className="sideBarContainer">
       <ul className="sideList">
-        {items.map((item) => (
-          <li>
+        {items.map((item, key) => (
+          <li key={key}>
             <div>
               <Button
                 className="buttonStyle"

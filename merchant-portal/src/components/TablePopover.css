@@ -8,7 +8,6 @@
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 30px;
-  margin-top: 20px;
   text-align: center;
 }
 
@@ -48,4 +47,17 @@
 
 .capacityPadding {
   padding-right: 10px;
+}
+
+.deleteIconStyle {
+  color: red !important;
+}
+
+.topButtons {
+  display: flex;
+}
+
+.iconButtonStyle {
+  flex-grow: 1;
+  flex-wrap: nowrap;
 }
