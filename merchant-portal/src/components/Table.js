@@ -1,60 +1,56 @@
 import "./Table.css";
 import TableOrder from "./TableOrder";
+import MorePopover from "./MorePopover";
 import EventSeatOutlinedIcon from "@material-ui/icons/EventSeatOutlined";
 import React from "react";
 import { connect } from "react-redux";
-import Popover from "@material-ui/core/Popover";
+import Modal from "@material-ui/core/Modal";
 
 function Table(props) {
   const table = props.table;
 
-  const handleOnclick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const [open, setOpen] = React.useState(false);
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleOnclick = () => {
+    setOpen(true);
+  };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setOpen(false);
   };
-  const open = Boolean(anchorEl);
-  const id = open ? "menuItem-popover" : undefined;
 
   return (
     <>
       <div
         className="tableStyle"
-        style={{ width: table.width * 100, height: table.length * 100 }}
-        onClick={handleOnclick}
+        style={{ width: table.width * 120, height: table.length * 120 }}
       >
-        <div>
-          <span className="tableNameSpan">{table.name}</span>
-          <div className="iconWrapper">
-            <EventSeatOutlinedIcon />
-            <span className="tableCapacitySpan">x {table.capacity}</span>
+        <div className="moreHorizStyle">
+          <MorePopover
+            tableIndex={props.tableIndex}
+            table={JSON.parse(JSON.stringify(table))}
+          />
+        </div>
+        <div className="tableFieldsWrapper" onClick={handleOnclick}>
+          <div>
+            <div>
+              <span className="tableNameSpan">{table.name}</span>
+            </div>
+
+            <div className="iconWrapper">
+              <EventSeatOutlinedIcon />
+              <span className="tableCapacitySpan">x {table.capacity}</span>
+            </div>
           </div>
         </div>
       </div>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-      >
+      <Modal open={open} onClose={handleClose} className="tableOrderModal">
         <TableOrder
           tableIndex={props.tableIndex}
           table={JSON.parse(JSON.stringify(table))}
-          setAnchorEl={setAnchorEl}
+          handleClose={handleClose}
         />
-      </Popover>
+      </Modal>
     </>
   );
 }

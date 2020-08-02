@@ -1,7 +1,7 @@
 import "./TablePage.css";
 
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
-
+import PickUp from "./PickUp";
 import React from "react";
 import Tab from "@material-ui/core/Tab";
 import TableMgmt from "./TableMgmt";
@@ -39,7 +39,8 @@ export default function TablePage() {
             <Tab className="tabStyle" label="Pick Up" />
           </Tabs>
         </div>
-        <div className="tablesContainer">{value === 0 && <TableMgmt />}</div>
+        <div className="dineInContainer">{value === 0 && <TableMgmt />}</div>
+        <div className="pickUpContainer">{value === 1 && <PickUp />}</div>
       </div>
     </MuiThemeProvider>
   );

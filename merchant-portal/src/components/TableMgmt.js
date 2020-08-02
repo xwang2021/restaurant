@@ -1,8 +1,7 @@
 import "./TableMgmt.css";
 import AddIcon from "@material-ui/icons/Add";
-import TablePopover from "./TablePopover";
+import TableModal from "./TableModal";
 import Button from "@material-ui/core/Button";
-import Popover from "@material-ui/core/Popover";
 import React from "react";
 import { connect } from "react-redux";
 import Table from "./Table";
@@ -15,18 +14,15 @@ const mapStateToProps = function (state) {
 
 //import CloseIcon from "@material-ui/icons/Close";
 function TableMGMT(props) {
-  const handleOnclick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const [showModal, setShowModal] = React.useState(false);
+
+  const openTableModal = () => {
+    setShowModal(true);
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClose = () => {
-    setAnchorEl(null);
+  const closeTableModal = () => {
+    setShowModal(false);
   };
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-
   return (
     <>
       <div className="buttonContainer">
@@ -34,26 +30,13 @@ function TableMGMT(props) {
           variant="contained"
           color="secondary"
           startIcon={<AddIcon />}
-          onClick={handleOnclick}
+          onClick={openTableModal}
         >
           Add Table
         </Button>
-        <Popover
-          id={id}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "right",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
-        >
-          <TablePopover setAnchorEl={setAnchorEl} />
-        </Popover>
+        {showModal ? (
+          <TableModal isEdit={false} handleClose={closeTableModal} />
+        ) : null}
       </div>
       <div className="tableContainer">
         {props.tables.map((tableItem, key) => (
