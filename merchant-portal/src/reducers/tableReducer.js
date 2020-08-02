@@ -2,9 +2,9 @@ const initialState = {
   tables: [
     {
       name: "A1",
-      capacity: 2,
-      width: 2,
-      length: 3,
+      capacity: 1,
+      width: 1,
+      length: 1,
       menuItems: [
         {
           dish: "R1. Original Crossing Bridge Rice Noodles",
@@ -26,7 +26,7 @@ const initialState = {
     },
     {
       name: "A2",
-      capacity: 1,
+      capacity: 2,
       width: 1,
       length: 2,
       menuItems: [

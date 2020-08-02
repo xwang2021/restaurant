@@ -4,20 +4,21 @@ import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { connect } from "react-redux";
 import { updateTable } from "../actions/tableActions";
+import CloseIcon from "@material-ui/icons/Close";
+import IconButton from "@material-ui/core/IconButton";
+
 import Dish from "./Dish";
-import TablePopover from "./TablePopover";
-import Popover from "@material-ui/core/Popover";
 
 function TableOrder(props) {
   const table = props.table;
 
-  const handleCancel = () => {
-    props.setOpen(false);
-  };
-
   const handleSave = () => {
     props.dispatch(updateTable(table, props.tableIndex));
-    handleClose();
+    closePage();
+  };
+
+  const closePage = () => {
+    props.handleClose();
   };
 
   const calculateSubtotal = () => {
@@ -44,20 +45,13 @@ function TableOrder(props) {
     return subtotal - discount + calculateTax();
   };
 
-  const handleOnclick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  const open = Boolean(anchorEl);
-  const id = open ? "menuItem-popover" : undefined;
-
   return (
-    <div>
+    <div className="tableOrder">
+      <div className="closeOrderIconStyle">
+        <IconButton title="Close" onClick={closePage}>
+          <CloseIcon />
+        </IconButton>
+      </div>
       <div className="formContainer">
         <div className="leftContainer">
           <div className="tableNumStyle">
@@ -113,7 +107,6 @@ function TableOrder(props) {
             <Button>Add Item</Button>
             <Button>End Order</Button>
             <Button>Switch Table</Button>
-            <Button onClick={handleOnclick}>Table Setting</Button>
           </ButtonGroup>
         </div>
       </div>
@@ -122,7 +115,7 @@ function TableOrder(props) {
           className="btnStyle"
           variant="outlined"
           color="primary"
-          onClick={handleCancel}
+          onClick={closePage}
         >
           Cancel
         </Button>
@@ -135,28 +128,6 @@ function TableOrder(props) {
           Save
         </Button>
       </div>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
-      >
-        <TablePopover
-          table={table}
-          tableIndex={props.tableIndex}
-          closeOrderPage={handleClose}
-          isEdit={true}
-          setAnchorEl={setAnchorEl}
-        />
-      </Popover>
     </div>
   );
 }
