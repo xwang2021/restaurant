@@ -27,8 +27,9 @@
   text-align: center;
 }
 
-.numStyle {
+.nameStyle {
   padding: 20px;
+  height: 80px;
   display: grid;
 }
 
@@ -38,6 +39,7 @@
 
 .sizeStyle {
   padding: 20px;
+  height: 80px;
   display: grid;
 }
 

@@ -4,7 +4,7 @@ import Popover from "@material-ui/core/Popover";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { deleteTable } from "../actions/tableActions";
+import { deleteTable } from "../../actions/tableActions";
 import { connect } from "react-redux";
 import TableModal from "./TableModal";
 
@@ -76,7 +76,7 @@ function MorePopover(props) {
           isEdit={true}
           tableIndex={props.tableIndex}
           table={table}
-          handleClose={closeEditTableModal}
+          closeTableModal={closeEditTableModal}
         />
       ) : null}
     </div>

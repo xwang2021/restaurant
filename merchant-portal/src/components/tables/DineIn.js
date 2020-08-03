@@ -1,4 +1,4 @@
-import "./TableMgmt.css";
+import "./DineIn.css";
 import AddIcon from "@material-ui/icons/Add";
 import TableModal from "./TableModal";
 import Button from "@material-ui/core/Button";
@@ -6,14 +6,14 @@ import React from "react";
 import { connect } from "react-redux";
 import Table from "./Table";
 
+/* DineIn page contains Add Table button and render the tables from Redux state */
 const mapStateToProps = function (state) {
   return {
     tables: state.tables,
   };
 };
 
-//import CloseIcon from "@material-ui/icons/Close";
-function TableMGMT(props) {
+function DineIn(props) {
   const [showModal, setShowModal] = React.useState(false);
 
   const openTableModal = () => {
@@ -34,9 +34,12 @@ function TableMGMT(props) {
         >
           Add Table
         </Button>
-        {showModal ? (
-          <TableModal isEdit={false} handleClose={closeTableModal} />
-        ) : null}
+        {showModal && (
+          <TableModal
+            isEdit={false /*Create new table*/}
+            closeTableModal={closeTableModal}
+          />
+        )}
       </div>
       <div className="tableContainer">
         {props.tables.map((tableItem, key) => (
@@ -46,5 +49,5 @@ function TableMGMT(props) {
     </>
   );
 }
-
-export default connect(mapStateToProps)(TableMGMT);
+//insert tables field from redux state into the props of DineIn
+export default connect(mapStateToProps)(DineIn);
