@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import SideBar from "./components/SideBar";
-import TablePage from "./components/TablePage";
+import TablePage from "./components/tables/TablePage";
 import AccountBalanceOutlinedIcon from "@material-ui/icons/AccountBalanceOutlined";
 import AccountBoxOutlinedIcon from "@material-ui/icons/AccountBoxOutlined";
 import DashboardOutlinedIcon from "@material-ui/icons/DashboardOutlined";
@@ -43,10 +43,12 @@ export default function App() {
   return (
     <Router>
       <div className="container">
+        {/* render the left navigation bar by passing the items list*/}
         <SideBar items={items} />
         <Switch>
           <Route path="/tables">
-            <Tables />
+            {/* render the TablePage component */}
+            <TablePage />
           </Route>
           <Route path="/orders">
             <EmptyPage />
@@ -89,8 +91,4 @@ export default function App() {
 
 function EmptyPage() {
   return <div />;
-}
-
-function Tables() {
-  return <TablePage />;
 }

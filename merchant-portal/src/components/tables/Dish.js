@@ -4,6 +4,12 @@ import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOut
 import RemoveCircleOutlineOutlinedIcon from "@material-ui/icons/RemoveCircleOutlineOutlined";
 import Button from "@material-ui/core/Button";
 
+/*
+Dish is the single line item in the order page, which contains the name of the dish,
+the price, quantity. It supports the operation like increase quantity, decrease 
+quantity, or remove the item.
+*/
+
 export default function Dish(props) {
   const item = props.item;
   const table = props.table;
@@ -11,7 +17,9 @@ export default function Dish(props) {
   const [quantity, setQuantity] = React.useState(item.quantity);
 
   const onClickIncrease = () => {
+    // update the quantity of local variable
     setQuantity(quantity + 1);
+    // update the value inside the table as well to reflect the change
     item.quantity++;
     props.updateSubtotal(item.price);
   };
@@ -26,6 +34,7 @@ export default function Dish(props) {
     table.menuItems = table.menuItems.filter((menuItem) => {
       return menuItem !== item;
     });
+    // if the item is removed, update the subtotal number on the order page
     props.updateSubtotal(-item.price * item.quantity);
   };
 
@@ -39,10 +48,11 @@ export default function Dish(props) {
       </div>
       <div className="menuButtons">
         <Button
+          disabled={quantity <= 1}
           onClick={onClickDecrease}
           startIcon={<RemoveCircleOutlineOutlinedIcon />}
         ></Button>
-        <span className="capacityPadding">{quantity}</span>
+        <span className="capacityPadding">{item.quantity}</span>
         <Button
           onClick={onClickIncrease}
           color="primary"
