@@ -41,48 +41,47 @@ export default function App() {
   ];
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="container">
-        {/* render the left navigation bar by passing the items list*/}
         <SideBar items={items} />
         <Switch>
-          <Route path="/tables">
-            {/* render the TablePage component */}
+          <Route exact path="/tables">
             <TablePage />
           </Route>
-          <Route path="/orders">
+          <Route exact path="/orders">
             <EmptyPage />
           </Route>
-          <Route path="/menu">
+          <Route exact path="/menu">
             <EmptyPage />
           </Route>
-          <Route path="/profile">
+          <Route exact path="/profile">
             <EmptyPage />
           </Route>
-          <Route path="/hours">
+          <Route exact path="/hours">
             <EmptyPage />
           </Route>
-          <Route path="/reviews">
+          <Route exact path="/reviews">
             <EmptyPage />
           </Route>
-          <Route path="/bankAccount">
+          <Route exact path="/bankAccount">
             <EmptyPage />
           </Route>
-          <Route path="/transaction">
+          <Route exact path="/transaction">
             <EmptyPage />
           </Route>
-          <Route path="/transfer">
+          <Route exact path="/transfer">
             <EmptyPage />
           </Route>
-          <Route path="/stuff">
+          <Route exact path="/stuff">
             <EmptyPage />
           </Route>
-          <Route path="/settings">
+          <Route exact path="/settings">
             <EmptyPage />
           </Route>
-          <Route path="/">
-            <EmptyPage />
+          <Route exact path="/">
+            <TablePage />
           </Route>
+          <Route component={EmptyPage} />
         </Switch>
       </div>
     </Router>

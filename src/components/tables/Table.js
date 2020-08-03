@@ -27,7 +27,6 @@ function Table(props) {
     <>
       <div
         className="tableStyle"
-        // set the width and height based on the user input
         style={{ width: table.width * 120, height: table.length * 120 }}
       >
         <div className="moreHorizStyle">

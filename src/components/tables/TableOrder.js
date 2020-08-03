@@ -73,8 +73,6 @@ function TableOrder(props) {
                       <Dish
                         table={table}
                         item={item}
-                        // pass in the updateSubtotal hook, so if there is any updates with item quantity,
-                        // the change will also reflect on the subtotal number
                         updateSubtotal={updateSubtotal}
                       />
                     </li>
