@@ -4,7 +4,7 @@
 This table management system allows users to create the visualized floor plan by adding, editing, and removing tables. It also has the functionality to manage orders for dine-in and pick up.
 
 ## Demo Link
-Here is a working live demo: https://xwang2021.github.io/restaurant/tables
+Here is a working live demo: https://xwang2021.github.io/restaurant/
 
 ![](images/TablePage.PNG)
 
